@@ -46,8 +46,6 @@ class Markov:
         def currentState():
             return result[max(0, len(result)-self.n):]
         def nextLetter():
-            print("Length: {}".format(max(0, len(result)-self.n)))
-            print("Current state: {}".format(currentState()))
             return self.getContinuation(currentState())
         next = nextLetter()
         while len(result) < self.maxLength and next != None:
@@ -59,10 +57,7 @@ class Markov:
         node = self.findNode(sequence)
         if node is not None:
             target = random.random()
-            print("Target: {}".format(target))
             sum = 0
-            if 'continuations' not in node:
-                print("Weird node: {}".format(node))
             for contName, contNode in node['continuations'].items():
                 sum += contNode['frequency']
                 if sum >= target:
