@@ -1,7 +1,7 @@
 import random
 
 class Markov:
-    def __init__(self, corpus="", n=2, maxLength=20, IGNORED_CHARS='.,:;_!?/#*"'):
+    def __init__(self, corpus="", n=2, maxLength=20, IGNORED_CHARS='.,:;_!?/#*"()'):
         self.n = n
         self.maxLength = maxLength
         for sym in IGNORED_CHARS:
