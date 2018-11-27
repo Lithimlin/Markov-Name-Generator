@@ -35,8 +35,8 @@ def update_gen(value):
     gen = markov.Markov(app.text("corpus"), n=int(app.spin("order")), maxLength=int(app.spin("maxLength")))
 
 with gui("Markov Word Generator", bg="lightblue") as app:
-    app.label("title1", value="Your word is:", sticky="e")
-    app.label("gen_output", value="", row=0, column=1, sticky="")
+    app.label("title1", value="Your word is:", sticky="e", font=25)
+    app.label("gen_output", value="", row=0, column=1, sticky="", font=25)
     app.button("generate", generate, label="Generate new Word",
                 colspan=2, stretch="column", sticky="news")
     app.spin("order", label="n=", value=0, endValue=5, pos=2, change=update_gen)
