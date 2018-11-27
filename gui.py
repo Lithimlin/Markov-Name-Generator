@@ -12,7 +12,7 @@ def update_corpora(value):
         name = app.entry("corpus_name")
         try:
             parser.save_corpus(name, app.text("corpus"))
-            app.option("corpora", value=parser.list_corpora())
+            app.changeOptionBox("corpora", parser.list_corpora())
             app.option("corpora", name)
         except FileExistsError as e:
             app.popUp("File exists", e, kind="error")
@@ -21,7 +21,10 @@ def update_corpora(value):
 
     elif value is "remove_corpus":
         parser.remove_corpus(app.option("corpora"))
-        app.option("corpora", value=parser.list_corpora(), selected=0)
+        app.changeOptionBox("corpora", parser.list_corpora(), 0)
+
+    if value is not "corpora":
+        app.entry("corpus_name", value="")
 
     app.clearTextArea("corpus", callFunction=False)
     app.text("corpus", value=get_corpus())
