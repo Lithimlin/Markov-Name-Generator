@@ -13,3 +13,5 @@ To start the GUI, call `gui.py` from within the virtual environment.
 
 # Future Features
 * Updating corpora
+* Add an icon
+* Make it look better
